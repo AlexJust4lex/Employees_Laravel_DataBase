@@ -10,56 +10,14 @@ class MainController extends Controller {
         return view('home');
     }
     public function signIn() {
-        return view('SignForm');
-    }
-    public function signInAdmin() {
-        return view('SignAdmin');
-    }
-    public function signInCheck(Request $request) {
-        $valid = $request->validate([
-            'login' => 'required',
-            'password' => 'required'
-        ]);
-    }
-    public function signInAdminCheck(Request $request) {
-        $valid = $request->validate([
-            'login' => 'required'
-        ]);
+        return view('SignIn');
     }
 
-    public function newDataAppend()
-    {
-        return view('createNewData');
-    }
-    public function adminPage() {
-        $reviews = new AllDataModel();
-        return view('adminPage',['reviews' => $reviews->all()]);
+    public function signUp() {
+        return view('signUp');
     }
 
-    public function createNewData(Request $request) {
-        $valid = $request->validate([
-            'date' => 'required',
-            'job' => 'required',
-            'status' => 'required',
-            'mate' => 'required',
-            'payment' => 'required'
-           // 'comms' => 'required',
-           // 'jobtype' => 'required'
-        ]);
-        $data = new AllDataModel();
-        $data->date = $request->input('date');
-        $data->worker = $request->input('worker');
-        $data->job = $request->input('job');
-        $data->status = $request->input('status');
-        $data->mate = $request->input('mate');
-        $data->payment = $request->input('payment');
-        $data->comments = $request->input('comments');
-        $data->job_type = $request->input('job_type');
 
-
-        $data->save();
-        return redirect()->route('adminPage');
-    }
 
 
 }

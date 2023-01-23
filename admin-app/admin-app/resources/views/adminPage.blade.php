@@ -13,7 +13,7 @@
                 </ul>
         </div>
     @endif
-    <main class="form-signin w-100 m-auto">
+    <main class="form-control w-100 m-auto">
         <form>
             <h1 class="h3 mb-3 fw-normal">Администратор</h1>
             <h1>Вся информация<h1>
